@@ -2,8 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { linkModel } = require('./db');
 const app = express();
-mongoose.connect('mongodb+srv://roopchandthakur48_db_user:hvAqANFPqW5sTAkN@cluster0.q9had5l.mongodb.net/link-shortner')
+mongoose.connect('')
 app.use(express.json());
+
+app.get('/', function(req, res){
+    res.sendFile(__dirname + '/public/index.html');
+})
 
 app.post('/short', async function(req, res){
     const url = req.body.url;
